@@ -1,14 +1,13 @@
 <?php get_header();?>
-
-<h1>Bem vindo(a)!</h1>
-
 <main class="home-main">
     <div class="container">
+    <h1>Quarto andar</h1>
 
-        <ul class="imoveis-listagem">
+        
         <?php
-            if(have_posts()){
-            while(have_posts()){
+            if(have_posts()){?>
+            <ul class="imoveis-listagem">
+           <?php while(have_posts()){
               the_post();
         ?>
             <li class="imoveis-listagem-item">
