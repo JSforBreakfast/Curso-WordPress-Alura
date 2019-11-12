@@ -2,26 +2,30 @@
 <main class="home-main">
     <div class="container">
     <h1>Quarto andar</h1>
-
         
         <?php
-            if(have_posts()){?>
+            $args = array('post_type' => 'imovel');
+            $loop = new WP_Query($args);
+            if($loop->have_posts()){?>
             <ul class="imoveis-listagem">
-           <?php while(have_posts()){
-              the_post();
+           <?php while($loop->have_posts()){
+              $loop->the_post();
         ?>
             <li class="imoveis-listagem-item">
-            <?php the_post_thumbnail(); ?>
-    <h2><?php the_title(); ?></h2>
-    <div><?php the_content();?></div>  
+                <a href="<?php the_permalink();?>">
+                    <?php the_post_thumbnail(); ?>
+                    <h2><?php the_title(); ?></h2>
+                    <div><?php the_content();?></div>  
+                </a>
             </li>
 
         <?php       
-            }
-        }
-        ?>
+            } ?>
 
-        </ul>
+            </ul>
+
+       <?php }
+                ?>
     </div>
 </main>
 
