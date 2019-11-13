@@ -1,7 +1,10 @@
-<?php get_header();?>
+<?php 
+$css_especifico = 'index';
+require_once('header.php');
+
+?>
 <main class="home-main">
     <div class="container">
-    <h1>Quarto andar</h1>
         
         <?php
             $args = array('post_type' => 'imovel');
@@ -15,7 +18,7 @@
                 <a href="<?php the_permalink();?>">
                     <?php the_post_thumbnail(); ?>
                     <h2><?php the_title(); ?></h2>
-                    <div><?php the_content();?></div>  
+                    <p><?php the_content();?></p>  
                 </a>
             </li>
 
