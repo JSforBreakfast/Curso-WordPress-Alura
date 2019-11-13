@@ -3,7 +3,7 @@
 add_theme_support( 'post-thumbnails' );
 
 function registrar_imoveis() {
-	$descricao = 'Usado para listar os imóveis da Maluras';
+	$descricao = 'Usado para listar os imóveis do Quarto Andar';
 	$singular = 'Imóvel';
 	$plural = 'Imóveis';
 
@@ -31,7 +31,22 @@ function registrar_imoveis() {
 	);
 
 
-	register_post_type( 'imovel', $args);	
+	register_post_type('imovel', $args);	
 }
 
 add_action('init', 'registrar_imoveis');
+
+
+
+function registrar_menu_navegacao() {
+    register_nav_menu('header-menu', 'main-menu');
+}
+
+add_action( 'init', 'registrar_menu_navegacao');
+
+function geraTitle() {
+	blog_info('name'); 
+	if(!is_home()) echo ' | ';
+	the_title();
+ }
+?>
