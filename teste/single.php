@@ -1,4 +1,5 @@
-<?php get_header(); ?>
+<?php $css_especifico = 'single';
+require_once('single.php'); ?>
 
 <main>
 
@@ -15,18 +16,21 @@
             </div>
 
             <div class="container">
+
                 <section class="chamada-principal">
                    <h1><?php the_title(); ?></h1> 
                 </section>
+
                 <section class="container">
+
                     <div class="single-imovel-descricao">
                         <?php the_content(); ?>
                     </div>
+
                 </section>
                 <span class="single-imovel-data">
                     <?php the_date(); ?>
                 </span>
-
 
             </div>
 
