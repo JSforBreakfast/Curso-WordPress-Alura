@@ -7,7 +7,18 @@ require_once('header.php');
     <div class="container">
         
         <?php
-            $args = array('post_type' => 'imovel');
+
+            $args = array(
+                'post_type' => 'imovel',
+                'tax_query' => aaray( 
+                    array(
+                        'taxonomy' => 'localizacao',
+                        'field' => 'slug',
+                        'term' => 'salvador'
+                    );
+                );
+            );
+
             $loop = new WP_Query($args);
             if($loop->have_posts()){?>
             <ul class="imoveis-listagem">
