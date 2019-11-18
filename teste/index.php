@@ -11,8 +11,8 @@ require_once('header.php');
 
     <?php $taxonomias = get_terms('localizacao'); ?>
     <form class="busca-localizacao-form" action="<?php bloginfo('url'); ?>">
-        <div name="taxonomy-select-wrapper">
-       <select class="taxonomy">
+        <div class="taxonomy-select-wrapper">
+       <select name="taxonomy">
        <option value="">Todos os imóveis</option>
        <?php foreach($taxonomias as $taxonomia){ ?>
             <option value="<?php echo $taxonomia->slug; ?>"><?php echo $taxonomia->name; ?>
