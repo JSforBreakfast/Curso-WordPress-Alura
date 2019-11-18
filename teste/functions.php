@@ -49,4 +49,31 @@ function geraTitle() {
 	if(!is_home()) echo ' | ';
 	the_title();
  }
+
+function registrar_taxonomia_localizacao(){
+
+	$nomeSingular = 'Localizacao';
+	$nomePlural = 'Localizacoes';
+	
+	$labels = array(
+		'name' => $nomePlural,
+		'singular_name' => $nomeSingular,
+		'edit_item' => 'Editar' . $nomeSingular,
+		'add_new_item' => 'Adicionar nova ' . $nomeSingular
+	);
+	
+	 $args = array(
+		'labels' => $labels,
+		'public' => true,
+		'hierarchical' => true
+	 );
+	
+	register_taxonomy('localizacao', 'imovel', $args);
+
+}
+
+add_action('init', 'registrar_taxonomia_localizacao');
+
 ?>
+
+
