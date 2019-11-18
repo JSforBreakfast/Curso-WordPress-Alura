@@ -1,5 +1,5 @@
 <?php
-$css_escolhido = 'page';
+$css_especifico = 'page';
 require_once('header.php');
 ?>
 
