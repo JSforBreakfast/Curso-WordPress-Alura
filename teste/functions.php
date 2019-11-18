@@ -154,26 +154,26 @@ function informacoes_imovel_view( $post ) {
 			<div class="input-addon-wrapper">
 				<span class="input-addon">R$</span>
 				<input id="quarto-preco-input" class="maluras-metabox-input" type="text" name="preco_id"
-				value="<?= number_format($imoveis_meta_data['preco_id'][0], 2, ',', '.'); ?>">
+				value="<?php echo number_format($imoveis_meta_data['preco_id'][0], 2, ',', '.'); ?>">
 			</div>
 		</div>
 
 		<div class="quarto-metabox-item">
 			<label for="quarto-vagas-input">Vagas:</label>
 			<input id="quarto-vagas-input" class="maluras-metabox-input" type="number" name="vagas_id"
-			value="<?= $imoveis_meta_data['vagas_id'][0]; ?>">
+			value="<?php echo $imoveis_meta_data['vagas_id'][0]; ?>">
 		</div>
 
 		<div class="quarto-metabox-item">
 			<label for="quarto-banheiros-input">Banheiros:</label>
 			<input id="quarto-banheiros-input" class="maluras-metabox-input" type="number" name="banheiros_id"
-			value="<?= $imoveis_meta_data['banheiros_id'][0]; ?>">
+			value="<?php echo $imoveis_meta_data['banheiros_id'][0]; ?>">
 		</div>
 
 		<div class="quarto-metabox-item">
 			<label for="quarto-quartos-input">Quartos:</label>
 			<input id="quarto-quartos-input" class="maluras-metabox-input" type="number" name="quartos_id"
-			value="<?= $imoveis_meta_data['quartos_id'][0]; ?>">
+			value="<?php echo $imoveis_meta_data['quartos_id'][0]; ?>">
 		</div>
 
 	</div>
