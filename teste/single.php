@@ -30,16 +30,16 @@ require_once('header.php');
 				 
 				<dl class="single-imovel-informacoes">
 					<dt>Preço</dt>
-					<dd>R$ <?= esc_attr( $imoveis_meta_data['preco_id'][0] ); ?></dd>
+					<dd>R$ <?php echo esc_attr( $imoveis_meta_data['preco_id'][0] ); ?></dd>
 
 					<dt>Vagas</dt>
-					<dd><?= esc_attr( $imoveis_meta_data['vagas_id'][0] ); ?></dd>
+					<dd><?php echo esc_attr( $imoveis_meta_data['vagas_id'][0] ); ?></dd>
 
 					<dt>Banheiros</dt>
-					<dd><?= esc_attr( $imoveis_meta_data['banheiros_id'][0] ); ?></dd>
+					<dd><?php echo esc_attr( $imoveis_meta_data['banheiros_id'][0] ); ?></dd>
 					
 					<dt>Quartos</dt>
-					<dd><?= esc_attr( $imoveis_meta_data['quartos_id'][0] ); ?></dd>
+					<dd><?php echo esc_attr( $imoveis_meta_data['quartos_id'][0] ); ?></dd>
 				</dl>
 
 
