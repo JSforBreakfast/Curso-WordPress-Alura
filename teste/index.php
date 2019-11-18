@@ -1,46 +1,46 @@
-<?php 
-$css_especifico = 'index';
+<?php
+$css_escolhido = 'index';
 require_once('header.php');
-
 ?>
 <main class="home-main">
-    <div class="container">
-        
-        <?php
+	<div class="container">
 
-            $args = array(
+        <?php 
+        
+        $taxQuery = array(
+            array(
+            'taxonomy' =>'localizacao',
+            'field' => 'slug',
+            'terms' => 'salvador'
+            )
+        );
+
+			$args = array( 
                 'post_type' => 'imovel',
-                'tax_query' => aaray( 
-                    array(
-                        'taxonomy' => 'localizacao',
-                        'field' => 'slug',
-                        'term' => 'salvador'
-                    );
-                );
+                'tax_query' => $taxQuery
             );
 
-            $loop = new WP_Query($args);
-            if($loop->have_posts()){?>
-            <ul class="imoveis-listagem">
-           <?php while($loop->have_posts()){
-              $loop->the_post();
-        ?>
-            <li class="imoveis-listagem-item">
-                <a href="<?php the_permalink();?>">
-                    <?php the_post_thumbnail(); ?>
-                    <h2><?php the_title(); ?></h2>
-                    <p><?php the_content();?></p>  
-                </a>
-            </li>
+       		$loop = new WP_Query( $args );
+			if( $loop->have_posts() ) { ?>
+			<ul class="imoveis-listagem">
+			<?php while( $loop->have_posts() ) {
+					$loop->the_post(); ?>
 
-        <?php       
-            } ?>
+				<li class="imoveis-listagem-item">
+					<a href="<?= the_permalink(); ?>">
+						<?php the_post_thumbnail(); ?>
 
-            </ul>
+						<h2><?php the_title(); ?></h2>
 
-       <?php }
-                ?>
-    </div>
+						<p><?php the_content(); ?></p>
+					</a>
+				</li>
+
+			<?php } ?>
+			</ul>
+		<?php	} ?>
+	</div>
 </main>
 
-<?php get_footer();?>
+
+<?php get_footer(); ?>
