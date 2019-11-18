@@ -74,6 +74,92 @@ function registrar_taxonomia_localizacao(){
 
 add_action('init', 'registrar_taxonomia_localizacao');
 
+function preenche_conteudo_informacoes_imovel(){?>
+	<style>
+		.maluras-metabox {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.maluras-metabox-item {
+			flex-basis: 30%;
+
+		}
+
+		.maluras-metabox-item label {
+			font-weight: 700;
+			display: block;
+			margin: .5rem 0;
+
+		}
+
+		.input-addon-wrapper {
+			height: 30px;
+			display: flex;
+			align-items: center;
+		}
+
+		.input-addon {
+			display: block;
+			border: 1px solid #CCC;
+			border-bottom-left-radius: 5px;
+			border-top-left-radius: 5px;
+			height: 100%;
+			width: 30px;
+			text-align: center;
+			line-height: 30px;
+			box-sizing: border-box;
+			background-color: #888;
+			color: #FFF;
+		}
+
+		.maluras-metabox-input {
+			height: 100%;
+			border: 1px solid #CCC;
+			border-left: none;
+			margin: 0;
+		}
+
+	</style>
+	<div class="quarto-metabox">
+		<div class="quarto-metabox-item">
+			<label for="quarto-preco-input">Preço:</label>
+			<div class="input-addon-wrapper">
+				<span class="input-addon">R$</span>
+				<input id="quarto-preco-input" class="quarto-metabox-input" type="text" name="preco_id"
+				value="<?= number_format($imoveis_meta_data['preco_id'][0], 2, ',', '.'); ?>">
+			</div>
+		</div>
+
+		<div class="quarto-metabox-item">
+			<label for="quarto-vagas-input">Vagas:</label>
+			<input id="quarto-vagas-input" class="quarto-metabox-input" type="number" name="vagas_id"
+			value="<?= $imoveis_meta_data['vagas_id'][0]; ?>">
+		</div>
+
+		<div class="quarto-metabox-item">
+			<label for="quarto-banheiros-input">Banheiros:</label>
+			<input id="quarto-banheiros-input" class="quarto-metabox-input" type="number" name="banheiros_id"
+			value="<?= $imoveis_meta_data['banheiros_id'][0]; ?>">
+		</div>
+
+		<div class="quarto-metabox-item">
+			<label for="quarto-quartos-input">Quartos:</label>
+			<input id="quarto-quartos-input" class="quarto-metabox-input" type="number" name="quartos_id"
+			value="<?php echo $imoveis_meta_data['quartos_id'][0]; ?>">
+		</div>
+
+	</div>
+<?php }
+
+function registra_meta_boxes(){
+	add_meta_box('informacoes-imoveis',
+	'Informacoes do Imovel' ,
+	'preenche_conteudo_informacoes_imovel',
+	'imovel',
+	'normal',
+	'high'
+	);
+}
+add_action('add_meta_boxes', 'registra_meta_boxes');
 ?>
-
-
