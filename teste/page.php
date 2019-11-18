@@ -1,22 +1,30 @@
-<?php $css_especifico = 'page';
-require_once('header.php') ?>
+<?php
+$css_escolhido = 'page';
+require_once('header.php');
+?>
 
 <main class="pagina-main">
-    <article class="pagina">
-        <h1 class="pagina-titulo">
-            <?php the_title(); ?>
-        </h1>
-        <?php
-            if(have_posts()){
-                while(have_posts()){
-                    the_post();
-        ?>
+	
+	<article class="pagina">
+		<h1 class="pagina-titulo">
+			<?php the_title(); ?>
+		</h1>
 
-        <div class="pagina-conteudo">
-            <?php the_content(); ?> 
-        </div>
-        <?php if (is_page('contato')) { ?>
-        <form>
+		<?php if( have_posts() ) {
+			while( have_posts() ) {
+				the_post(); ?>
+
+			<div class="pagina-conteudo">
+			 <?php the_content(); ?>
+			</div>
+
+		<?php	}
+		} 
+
+        if( is_page('contato') ) {
+		?>
+
+		<form>
 			<div class="form-nome">
 				<label for="form-nome">Nome:</label>
 				<input id="form-nome" type="text" placeholder="Seu nome aqui" name="form-nome">
@@ -33,15 +41,11 @@ require_once('header.php') ?>
 			</div>
 			<button type="submit">Enviar</button>
 
-        </form>
-        <?php } ?>
-        
-        <?php 
-    }
-}
-?>
+		</form>
 
-    </article>
+	<?php } ?>
+
+	</article>
 </main>
 
 <?php get_footer(); ?>
